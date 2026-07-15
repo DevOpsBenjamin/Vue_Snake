@@ -1,123 +1,40 @@
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <!-- Drop Shadow for Bed and Patient -->
-    <filter id="bed-shadow" x="-10%" y="-10%" width="120%" height="125%">
-      <feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.18"/>
-    </filter>
+  <!-- Color Palette: Flat Slate Grey (#2c3e50) and Royal Blue (#2563eb) -->
+  
+  <!-- IV Stand Pole -->
+  <path d="M 230 90 L 230 300" stroke="#2c3e50" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 230 90 Q 230 50 205 50" fill="none" stroke="#2c3e50" stroke-width="8" stroke-linecap="round"/>
 
-    <!-- Metallic Gradient for Bed Frame (Dark Steel/Slate) -->
-    <linearGradient id="frameGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#475569"/>
-      <stop offset="100%" stop-color="#1e293b"/>
-    </linearGradient>
+  <!-- IV Bag -->
+  <rect x="193" y="74" width="24" height="48" rx="6" fill="#2563eb"/>
+  <!-- IV Drip Tube -->
+  <path d="M 205 122 C 205 180, 240 230, 270 230" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
 
-    <!-- Medical Teal Sheet/Blanket Gradient -->
-    <linearGradient id="blanketGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2dd4bf"/>
-      <stop offset="100%" stop-color="#0f766e"/>
-    </linearGradient>
+  <!-- Bed Legs & Frame -->
+  <!-- Left Leg -->
+  <rect x="96" y="320" width="16" height="110" rx="4" fill="#2c3e50"/>
+  <!-- Right Leg -->
+  <rect x="400" y="320" width="16" height="110" rx="4" fill="#2c3e50"/>
+  
+  <!-- Horizontal Base Bar -->
+  <rect x="80" y="320" width="352" height="16" rx="4" fill="#2c3e50"/>
 
-    <!-- Glowing Cyan for IV Fluid -->
-    <linearGradient id="ivGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#38bdf8"/>
-      <stop offset="100%" stop-color="#0284c7"/>
-    </linearGradient>
+  <!-- Footboard (Left) -->
+  <rect x="68" y="250" width="16" height="80" rx="6" fill="#2c3e50"/>
 
-    <!-- Skin Tone Gradient (Stylized Soft Blue for patient, matching the original color theme) -->
-    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#60a5fa"/>
-      <stop offset="100%" stop-color="#2563eb"/>
-    </linearGradient>
+  <!-- Headboard (Right) -->
+  <rect x="428" y="190" width="16" height="140" rx="6" fill="#2c3e50"/>
 
-    <!-- Heart Glow -->
-    <radialGradient id="heartGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#fda4af" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
+  <!-- Mattress & Pillow Area -->
+  <rect x="84" y="280" width="344" height="40" rx="8" fill="#2c3e50"/>
 
-  <g filter="url(#bed-shadow)">
-    <!-- IV Drip Stand (Behind the bed) -->
-    <!-- Pole -->
-    <path d="M 230 110 L 230 320" stroke="#94a3b8" stroke-width="8" stroke-linecap="round"/>
-    <path d="M 230 110 Q 230 70 205 70" fill="none" stroke="#94a3b8" stroke-width="8" stroke-linecap="round"/>
-    <!-- IV Bag hanger -->
-    <circle cx="205" cy="74" r="5" fill="#64748b"/>
+  <!-- Patient Reclining Body -->
+  <!-- Legs / Bottom Blanket -->
+  <path d="M 94 280 L 250 280 C 260 280, 260 250, 250 250 L 94 250 Z" fill="#2c3e50"/>
+  
+  <!-- Reclined Torso/Arm -->
+  <path d="M 240 280 L 370 200 C 378 195, 388 205, 382 215 L 290 280 Z" fill="#2563eb"/>
 
-    <!-- IV Bag (glowing blue/cyan liquid) -->
-    <!-- Bag Border/Cap -->
-    <rect x="185" y="86" width="40" height="70" rx="10" fill="none" stroke="#94a3b8" stroke-width="3"/>
-    <!-- Liquid -->
-    <rect x="188" y="96" width="34" height="50" rx="6" fill="url(#ivGrad)"/>
-    <!-- Tube going from IV to patient -->
-    <path d="M 205 156 Q 205 240 325 240" fill="none" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="4 2" stroke-linecap="round" opacity="0.8"/>
-
-    <!-- Stretcher Bed Frame (Legs & support bars) -->
-    <!-- Left Leg -->
-    <rect x="94" y="320" width="20" height="120" rx="6" fill="url(#frameGrad)"/>
-    <circle cx="104" cy="442" r="14" fill="#334155"/>
-    <circle cx="104" cy="442" r="6" fill="#94a3b8"/>
-
-    <!-- Right Leg -->
-    <rect x="374" y="320" width="20" height="120" rx="6" fill="url(#frameGrad)"/>
-    <circle cx="384" cy="442" r="14" fill="#334155"/>
-    <circle cx="384" cy="442" r="6" fill="#94a3b8"/>
-
-    <!-- Diagonal support beams -->
-    <line x1="104" y1="320" x2="384" y2="430" stroke="#334155" stroke-width="6"/>
-    <line x1="384" y1="320" x2="104" y2="430" stroke="#334155" stroke-width="6"/>
-
-    <!-- Main mattress base platform -->
-    <rect x="80" y="300" width="328" height="24" rx="8" fill="url(#frameGrad)"/>
-
-    <!-- Headboard (Right Side) -->
-    <rect x="396" y="160" width="20" height="160" rx="10" fill="url(#frameGrad)"/>
-
-    <!-- Footboard (Left Side) -->
-    <rect x="72" y="240" width="20" height="80" rx="10" fill="url(#frameGrad)"/>
-
-    <!-- Mattress -->
-    <rect x="90" y="270" width="308" height="32" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
-
-    <!-- Pillow (elevated, resting against headboard) -->
-    <g transform="translate(345, 245) rotate(-15)">
-      <rect x="0" y="0" width="50" height="36" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="3"/>
-    </g>
-
-    <!-- Patient Torso (Elevated resting posture) -->
-    <g transform="translate(310, 230) rotate(-15)">
-      <!-- Shoulder/Body -->
-      <rect x="-40" y="-10" width="80" height="40" rx="16" fill="url(#skinGrad)"/>
-    </g>
-
-    <!-- Patient Head -->
-    <circle cx="350" cy="180" r="32" fill="url(#skinGrad)"/>
-
-    <!-- Cozy Blanket (covering the rest of the bed/patient legs) -->
-    <rect x="94" y="240" width="210" height="64" rx="12" fill="url(#blanketGrad)"/>
-    <!-- Rolled fold at the top of the blanket -->
-    <rect x="290" y="240" width="20" height="64" rx="6" fill="#0d9488"/>
-
-    <!-- Sleeping Face Details (Closed eyes) -->
-    <path d="M 336 178 Q 342 184 342 178" stroke="#1e3a8a" stroke-width="3" stroke-linecap="round" fill="none"/>
-    <path d="M 354 178 Q 360 184 360 178" stroke="#1e3a8a" stroke-width="3" stroke-linecap="round" fill="none"/>
-  </g>
-
-  <!-- Glowing Heart floating above the patient (indicates health/save objective) -->
-  <g transform="translate(350, 80)">
-    <!-- Glow circle behind -->
-    <circle cx="0" cy="0" r="50" fill="url(#heartGlow)"/>
-    <!-- Red heart -->
-    <path d="M 0 -12 
-             C -10 -25, -24 -15, -24 -2 
-             C -24 10, -10 18, 0 28 
-             C 10 18, 24 10, 24 -2 
-             C 24 -15, 10 -25, 0 -12 Z" 
-          fill="#f43f5e" 
-          stroke="#fda4af" 
-          stroke-width="2"/>
-    <!-- Small spark details -->
-    <circle cx="-25" cy="-25" r="3" fill="#fda4af"/>
-    <circle cx="28" cy="-15" r="4" fill="#fda4af"/>
-  </g>
+  <!-- Patient Head -->
+  <circle cx="380" cy="165" r="32" fill="#2563eb"/>
 </svg>
