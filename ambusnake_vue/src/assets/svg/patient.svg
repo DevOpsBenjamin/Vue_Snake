@@ -1,40 +1,48 @@
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <!-- Color Palette: Flat Slate Grey (#2c3e50) and Royal Blue (#2563eb) -->
+  <!-- Color Palette: Flat Slate Grey (#2c3e50), Royal Blue (#2563eb), and White gaps (#ffffff) -->
+  
+  <!-- Background behind elements (to ensure white gaps stand out even on non-white maps) -->
   
   <!-- IV Stand Pole -->
-  <path d="M 230 90 L 230 300" stroke="#2c3e50" stroke-width="8" stroke-linecap="round"/>
-  <path d="M 230 90 Q 230 50 205 50" fill="none" stroke="#2c3e50" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 230 90 L 230 300" stroke="#2c3e50" stroke-width="12" stroke-linecap="round"/>
+  <path d="M 230 90 Q 230 50 205 50" fill="none" stroke="#2c3e50" stroke-width="12" stroke-linecap="round"/>
 
-  <!-- IV Bag -->
-  <rect x="193" y="74" width="24" height="48" rx="6" fill="#2563eb"/>
-  <!-- IV Drip Tube -->
-  <path d="M 205 122 C 205 180, 240 230, 270 230" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+  <!-- IV Bag with white border to isolate it -->
+  <rect x="193" y="74" width="24" height="48" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"/>
+  
+  <!-- IV Drip Tube with white border spacing -->
+  <path d="M 205 122 C 205 180, 240 230, 270 230" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+  <path d="M 205 122 C 205 180, 240 230, 270 230" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
 
-  <!-- Bed Legs & Frame -->
+  <!-- Bed Legs & Frame with white borders -->
   <!-- Left Leg -->
-  <rect x="96" y="320" width="16" height="110" rx="4" fill="#2c3e50"/>
+  <rect x="96" y="320" width="16" height="110" rx="4" fill="#2c3e50" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"/>
   <!-- Right Leg -->
-  <rect x="400" y="320" width="16" height="110" rx="4" fill="#2c3e50"/>
+  <rect x="400" y="320" width="16" height="110" rx="4" fill="#2c3e50" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"/>
   
   <!-- Horizontal Base Bar -->
-  <rect x="80" y="320" width="352" height="16" rx="4" fill="#2c3e50"/>
+  <rect x="80" y="320" width="352" height="16" rx="4" fill="#2c3e50" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"/>
 
   <!-- Footboard (Left) -->
-  <rect x="68" y="250" width="16" height="80" rx="6" fill="#2c3e50"/>
+  <rect x="68" y="250" width="16" height="80" rx="6" fill="#2c3e50" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"/>
 
   <!-- Headboard (Right) -->
-  <rect x="428" y="190" width="16" height="140" rx="6" fill="#2c3e50"/>
+  <rect x="428" y="190" width="16" height="140" rx="6" fill="#2c3e50" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"/>
 
   <!-- Mattress & Pillow Area -->
-  <rect x="84" y="280" width="344" height="40" rx="8" fill="#2c3e50"/>
+  <rect x="84" y="280" width="344" height="40" rx="8" fill="#2c3e50" stroke="#ffffff" stroke-width="12" stroke-linejoin="round"/>
 
-  <!-- Patient Reclining Body -->
-  <!-- Legs / Bottom Blanket -->
-  <path d="M 94 280 L 250 280 C 260 280, 260 250, 250 250 L 94 250 Z" fill="#2c3e50"/>
+  <!-- Patient Reclining Body and Blanket -->
+  <!-- Blanket (drawn first so patient torso overlaps it with white gaps) -->
+  <path d="M 94 280 L 250 280 C 260 280, 260 250, 250 250 L 94 250 Z" fill="#2c3e50" stroke="#ffffff" stroke-width="12" stroke-linejoin="round"/>
   
-  <!-- Reclined Torso/Arm -->
-  <path d="M 240 280 L 370 200 C 378 195, 388 205, 382 215 L 290 280 Z" fill="#2563eb"/>
+  <!-- Reclined Torso/Arm with a thick white border to create the gap over the blanket -->
+  <path d="M 235 285 L 370 200 C 378 195, 388 205, 382 215 L 285 285 Z" fill="#2563eb" stroke="#ffffff" stroke-width="12" stroke-linejoin="round"/>
+  <!-- Re-draw fill to hide the stroke interior -->
+  <path d="M 235 285 L 370 200 C 378 195, 388 205, 382 215 L 285 285 Z" fill="#2563eb"/>
 
-  <!-- Patient Head -->
+  <!-- Patient Head with a thick white border to separate it from torso/headboard -->
+  <circle cx="380" cy="165" r="32" fill="#2563eb" stroke="#ffffff" stroke-width="12"/>
+  <!-- Re-draw fill to hide stroke interior -->
   <circle cx="380" cy="165" r="32" fill="#2563eb"/>
 </svg>
