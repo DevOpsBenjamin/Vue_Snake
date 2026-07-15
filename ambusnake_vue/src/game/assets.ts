@@ -15,14 +15,9 @@ export const svgAmbuHead = `
 </svg>
 `;
 
-export const svgAmbuBody = `
-<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect x="4" y="10" width="56" height="44" rx="4" fill="white" stroke="#555" stroke-width="2"/>
-  <rect x="24" y="24" width="16" height="16" fill="#ddd" rx="2"/>
-  <!-- Connection joint -->
-  <rect x="-4" y="28" width="8" height="8" fill="#555"/>
-</svg>
-`;
+// @ts-ignore
+import svgAmbuBody from '@/assets/svg/body.svg?raw';
+
 
 export const svgPatientBonus = `
 <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
