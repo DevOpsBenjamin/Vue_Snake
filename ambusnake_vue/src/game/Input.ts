@@ -26,11 +26,13 @@ export class InputManager {
       case 'W':
       case 'z':
       case 'Z':
+        e.preventDefault();
         if (this.currentDir !== Dir.Down) this.nextDir = Dir.Up;
         break;
       case 'ArrowDown':
       case 's':
       case 'S':
+        e.preventDefault();
         if (this.currentDir !== Dir.Up) this.nextDir = Dir.Down;
         break;
       case 'ArrowLeft':
@@ -38,11 +40,13 @@ export class InputManager {
       case 'A':
       case 'q':
       case 'Q':
+        e.preventDefault();
         if (this.currentDir !== Dir.Right) this.nextDir = Dir.Left;
         break;
       case 'ArrowRight':
       case 'd':
       case 'D':
+        e.preventDefault();
         if (this.currentDir !== Dir.Left) this.nextDir = Dir.Right;
         break;
     }
