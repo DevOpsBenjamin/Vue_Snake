@@ -2,27 +2,35 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import { GameEngine, GameState } from './game/GameEngine';
 import { Config } from './game/Config';
+import GameMenu from './GameMenu.vue';
+
+interface LeaderboardEntry {
+  score: number;
+  date: string;
+}
 
 const canvasRef = ref<HTMLCanvasElement | null>(null);
 const score = ref(0);
 const state = ref<GameState>(GameState.START);
 let engine: GameEngine | null = null;
 
+// LocalStorage Persistent High Score & Leaderboard
+const highScore = ref(parseInt(localStorage.getItem('ambusnake_high_score') || '0'));
+const leaderboard = ref<LeaderboardEntry[]>(
+  JSON.parse(localStorage.getItem('ambusnake_leaderboard') || '[]')
+);
+
 onMounted(() => {
   if (canvasRef.value) {
     engine = new GameEngine(canvasRef.value);
     engine.onScoreChange = (s) => score.value = s;
-    engine.onStateChange = (s) => state.value = s;
+    engine.onStateChange = (s) => handleStateChange(s);
 
     // Draw initial state before starting
     const ctx = canvasRef.value.getContext('2d');
     if (ctx) {
       ctx.fillStyle = '#a8e6cf';
       ctx.fillRect(0, 0, Config.BG_WIDTH, Config.BG_HEIGHT);
-      ctx.fillStyle = 'black';
-      ctx.font = '48px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('Press Start to Play', Config.BG_WIDTH / 2, Config.BG_HEIGHT / 2);
     }
   }
 });
@@ -33,6 +41,37 @@ onUnmounted(() => {
   }
 });
 
+const handleStateChange = (s: GameState) => {
+  state.value = s;
+  
+  if (s === GameState.GAMEOVER) {
+    // 1. Check & save high score
+    if (score.value > highScore.value) {
+      highScore.value = score.value;
+      localStorage.setItem('ambusnake_high_score', score.value.toString());
+    }
+    
+    // 2. Add to leaderboard & sort/slice
+    const today = new Date().toLocaleDateString('fr-FR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+    
+    const newEntry: LeaderboardEntry = {
+      score: score.value,
+      date: today
+    };
+    
+    const updated = [...leaderboard.value, newEntry]
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5); // Keep top 5
+      
+    leaderboard.value = updated;
+    localStorage.setItem('ambusnake_leaderboard', JSON.stringify(updated));
+  }
+};
+
 const startGame = () => {
   if (engine) {
     engine.start();
@@ -42,24 +81,36 @@ const startGame = () => {
 
 <template>
   <div class="snake-container">
+    <!-- Game Header (Glass styled) -->
     <div class="header">
-      <h1>AmbuSnake</h1>
-      <div class="score">Score: {{ score }}</div>
+      <div class="logo-area">
+        <h1>AmbuSnake</h1>
+        <span class="tagline">Sauvez des vies à Strasbourg</span>
+      </div>
+      <div class="stats">
+        <div class="stat-box record-box">
+          <span class="label">🏆 RECORD</span>
+          <span class="value">{{ highScore }}</span>
+        </div>
+        <div class="stat-box score-box">
+          <span class="label">🚑 SCORE</span>
+          <span class="value">{{ score }}</span>
+        </div>
+      </div>
     </div>
 
+    <!-- Main Game Canvas Frame -->
     <div class="game-area">
       <canvas ref="canvasRef" class="game-canvas"></canvas>
 
-      <div v-if="state === GameState.START" class="overlay">
-        <h2>Ready?</h2>
-        <button @click="startGame">Start Game</button>
-      </div>
-
-      <div v-if="state === GameState.GAMEOVER" class="overlay">
-        <h2>Game Over!</h2>
-        <p>Final Score: {{ score }}</p>
-        <button @click="startGame">Play Again</button>
-      </div>
+      <!-- Integrated Game Menu (Start & Game Over Overlays) -->
+      <GameMenu 
+        :state="state" 
+        :score="score" 
+        :highScore="highScore" 
+        :leaderboard="leaderboard" 
+        @start="startGame" 
+      />
     </div>
   </div>
 </template>
@@ -69,78 +120,103 @@ const startGame = () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Manrope', 'Roboto', sans-serif;
+  font-family: 'Outfit', 'Inter', 'Roboto', sans-serif;
   color: white;
 }
 
+/* Glass styled Header */
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   max-width: 1600px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+  padding: 12px 24px;
+  background: rgba(15, 23, 42, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.header h1 {
+.logo-area h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.score {
-  font-size: 1.5rem;
+.tagline {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  letter-spacing: 1px;
+}
+
+.stats {
+  display: flex;
+  gap: 16px;
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 20px;
+  border-radius: 12px;
+  min-width: 120px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.record-box {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.score-box {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.stat-box .label {
+  font-size: 0.75rem;
   font-weight: bold;
+  color: #94a3b8;
+  margin-bottom: 2px;
+  letter-spacing: 1px;
 }
 
+.record-box .label {
+  color: #fbbf24;
+}
+
+.score-box .label {
+  color: #60a5fa;
+}
+
+.stat-box .value {
+  font-size: 1.6rem;
+  font-weight: 900;
+}
+
+/* Canvas Area */
 .game-area {
   position: relative;
   width: 1600px;
   height: 896px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  background: #a8e6cf;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .game-canvas {
   width: 100%;
   height: 100%;
   display: block;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
-.overlay h2 {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-}
-
-.overlay p {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-button {
-  padding: 15px 30px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  background-color: #ff6b6b;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  transition: background-color 0.2s;
-}
-
-button:hover {
-  background-color: #e55a5a;
 }
 </style>
