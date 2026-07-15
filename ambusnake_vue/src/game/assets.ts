@@ -10,12 +10,8 @@ import svgAmbuBody from '@/assets/svg/body.svg?raw';
 // @ts-ignore
 import svgPatientBonus from '@/assets/svg/patient.svg?raw';
 
-export const svgBackground = `
-<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="#a8e6cf"/>
-  <path d="M0,0 L64,64 M64,0 L0,64" stroke="#95d1bc" stroke-width="1" opacity="0.5"/>
-</svg>
-`;
+// @ts-ignore
+import imgSnakeBg from '@/assets/SnakeBg.png';
 
 export function createSvgImage(svgString: string): HTMLImageElement {
   const img = new Image();
@@ -25,9 +21,15 @@ export function createSvgImage(svgString: string): HTMLImageElement {
   return img;
 }
 
+export function createPngImage(srcString: string): HTMLImageElement {
+  const img = new Image();
+  img.src = srcString;
+  return img;
+}
+
 export const images = {
   head: createSvgImage(svgAmbuHead),
   body: createSvgImage(svgAmbuBody),
   bonus: createSvgImage(svgPatientBonus),
-  bg: createSvgImage(svgBackground),
+  bg: createPngImage(imgSnakeBg),
 };

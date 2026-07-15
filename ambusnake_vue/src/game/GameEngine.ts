@@ -99,11 +99,9 @@ export class GameEngine {
   }
 
   private draw() {
-    // Draw background grid
-    const pattern = this.ctx.createPattern(images.bg, 'repeat');
-    if (pattern) {
-      this.ctx.fillStyle = pattern;
-      this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    // Draw Strasbourg background map
+    if (images.bg.complete && images.bg.naturalWidth !== 0) {
+      this.ctx.drawImage(images.bg, 0, 0, this.canvas.width, this.canvas.height);
     } else {
       this.ctx.fillStyle = '#a8e6cf';
       this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
