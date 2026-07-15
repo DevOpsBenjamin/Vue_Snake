@@ -1,39 +1,32 @@
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <!-- Color Palette: Slate Grey (#2c3e50) and Royal Blue (#2563eb) -->
-  <!-- Authentic H-format bed frame from SnakeBonus.png with precise gaps -->
+  <!-- Inverted U Bed Frame -->
+  <path d="M 76 440 L 76 340 L 436 340 L 436 440 L 420 440 L 420 356 L 92 356 L 92 440 Z" fill="#2c3e50"/>
 
-  <!-- IV Stand Pole -->
-  <path d="M 210 70 L 210 200" stroke="#2c3e50" stroke-width="8" stroke-linecap="round"/>
-  <path d="M 210 70 Q 210 35 185 35" fill="none" stroke="#2c3e50" stroke-width="8" stroke-linecap="round"/>
+  <!-- Left Vertical Bar (Footboard) with a gap of 19.2px (1.2x bar thickness) -->
+  <rect x="40.8" y="240" width="16" height="200" fill="#2c3e50"/>
 
-  <!-- IV Bag -->
-  <rect x="170" y="55" width="30" height="55" rx="6" fill="#2563eb"/>
+  <!-- Right Vertical Bar (Headboard) - Symmetric positioning with left bar (gap of 19.2px) -->
+  <rect x="455.2" y="160" width="16" height="280" fill="#2c3e50"/>
 
-  <!-- IV Drip Tube -->
-  <path d="M 185 125 C 185 175, 215 205, 250 205" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+  <!-- Complex Bedding Path (With the top-left corner of the square block rounded) -->
+  <path d="M 76 320.8 
+           L 436 320.8 
+           L 436 180 
+           L 316 279.2 
+           L 196 279.2 
+           L 196 240 
+           L 86 240 
+           Q 76 240 76 250 
+           L 76 320.8 
+           Z" 
+        fill="#2c3e50"/>
 
-  <!-- H-Format Bed Frame (Outer vertical boards act as the legs) -->
-  <!-- Left Leg / Footboard -->
-  <rect x="64" y="240" width="16" height="210" rx="8" fill="#2c3e50"/>
-  
-  <!-- Right Leg / Headboard -->
-  <rect x="432" y="160" width="16" height="290" rx="8" fill="#2c3e50"/>
-  
-  <!-- Horizontal H-Connector (connecting the two outer legs) -->
-  <rect x="80" y="370" width="352" height="16" rx="4" fill="#2c3e50"/>
+  <!-- Thin Vertical Bar (IV Pole) shifted slightly to the left (x=204, gap of 8px) -->
+  <rect x="204" y="70" width="8" height="209.2" fill="#2c3e50"/>
 
-  <!-- Stretcher Mattress Base (separated from the connector and legs) -->
-  <rect x="96" y="290" width="320" height="20" rx="6" fill="#2c3e50"/>
+  <!-- Complex Patient Body Polygon -->
+  <polygon points="220,271.2 316,271.2 436,172 376,172 296,240 220,240" fill="#2563eb"/>
 
-  <!-- Blanket (on the left side of mattress) -->
-  <rect x="96" y="235" width="150" height="40" rx="6" fill="#2c3e50"/>
-
-  <!-- Triangular Backrest (Dossier) -->
-  <polygon points="268,290 392,290 392,206" fill="#2c3e50"/>
-
-  <!-- Patient Torso (Inclined parallel to backrest, blue) -->
-  <path d="M 288 270 L 378 210" stroke="#2563eb" stroke-width="32" stroke-linecap="round"/>
-
-  <!-- Patient Head -->
-  <circle cx="395" cy="155" r="26" fill="#2563eb"/>
+  <!-- Patient Head: Blue circle centered on the horizontal shoulder line (x=406, y=140, r=24) -->
+  <circle cx="406" cy="140" r="24" fill="#2563eb"/>
 </svg>
