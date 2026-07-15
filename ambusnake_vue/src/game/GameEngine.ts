@@ -57,6 +57,7 @@ export class GameEngine {
     if (this.animationFrameId) {
       cancelAnimationFrame(this.animationFrameId);
     }
+    this.input.destroy();
   }
 
   private loop(currentTime: number) {

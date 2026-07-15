@@ -8,9 +8,15 @@ export enum Dir {
 export class InputManager {
   private currentDir: Dir = Dir.Right;
   private nextDir: Dir = Dir.Right;
+  private boundHandler: (e: KeyboardEvent) => void;
 
   constructor() {
-    window.addEventListener('keydown', this.handleKeyDown.bind(this));
+    this.boundHandler = this.handleKeyDown.bind(this);
+    window.addEventListener('keydown', this.boundHandler);
+  }
+
+  public destroy() {
+    window.removeEventListener('keydown', this.boundHandler);
   }
 
   private handleKeyDown(e: KeyboardEvent) {
