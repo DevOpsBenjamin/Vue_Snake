@@ -19,18 +19,8 @@ export const svgAmbuHead = `
 import svgAmbuBody from '@/assets/svg/body.svg?raw';
 
 
-export const svgPatientBonus = `
-<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <!-- Bed frame -->
-  <rect x="10" y="20" width="44" height="24" rx="4" fill="#ccc" stroke="#888" stroke-width="2"/>
-  <!-- Pillow -->
-  <rect x="14" y="24" width="12" height="16" rx="4" fill="white"/>
-  <!-- Patient blanket -->
-  <rect x="28" y="22" width="22" height="20" rx="4" fill="#ff6b6b"/>
-  <!-- Patient head -->
-  <circle cx="20" cy="32" r="5" fill="#f1c27d"/>
-</svg>
-`;
+// @ts-ignore
+import svgPatientBonus from '@/assets/svg/patient.svg?raw';
 
 export const svgBackground = `
 <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
