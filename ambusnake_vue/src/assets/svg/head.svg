@@ -1,0 +1,100 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Path for the curved mirrored text (goes from right-to-left to naturally mirror and flip the text) -->
+    <path id="textCurve" d="M 364 65 Q 256 45 148 65"/>
+  </defs>
+
+  <!-- Left Side Mirror (on the hood beside the windshield) -->
+  <path d="M 130 110 C 110 110, 98 120, 98 135 C 98 145, 110 145, 130 135" fill="#111111" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Right Side Mirror (Symmetrical on the hood beside the windshield) -->
+  <path d="M 382 110 C 402 110, 414 120, 414 135 C 414 145, 402 145, 382 135" fill="#111111" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- Ambulance Silhouette: Tapered diagonal hood, rectangular rear compartment with rounded top-left and top-right shoulders -->
+  <path d="M 96 504 
+           L 416 504 
+           Q 432 504 432 488 
+           L 432 192 
+           Q 432 176 416 176 
+           L 400 176 
+           L 368 24 
+           Q 368 8 344 8 
+           L 168 8 
+           Q 144 8 144 24 
+           L 112 176 
+           L 96 176 
+           Q 80 176 80 192 
+           L 80 488 
+           Q 80 504 96 504 
+           Z" 
+        fill="#111111"/>
+
+  <!-- White Star of Life on the roof (centered at x=256, y=340 inside the rear compartment, scale=0.35) -->
+  <g transform="translate(256, 340) scale(0.35) translate(-256, -256)">
+    <path d="M 201.00 46.00 
+             L 311.00 46.00 
+             L 311.00 160.74 
+             L 410.37 103.37 
+             L 465.37 198.63 
+             L 366.00 256.00 
+             L 465.37 313.37 
+             L 410.37 408.63 
+             L 311.00 351.26 
+             L 311.00 466.00 
+             L 201.00 466.00 
+             L 201.00 351.26 
+             L 101.63 408.63 
+             L 46.63 313.37 
+             L 146.00 256.00 
+             L 46.63 198.63 
+             L 101.63 103.37 
+             L 201.00 160.74 
+             Z" 
+          fill="#ffffff"/>
+  </g>
+
+  <!-- White Windshield: Curved upwards (convex towards the front nose) with rounded corners and uniform thickness -->
+  <path d="M 148 101 
+           Q 256 81 364 101 
+           L 378 154 
+           Q 256 134 134 154 
+           Z" 
+        fill="#ffffff" 
+        stroke="#ffffff" 
+        stroke-width="12" 
+        stroke-linejoin="round"/>
+
+  <!-- Text "AMBULANCE" on the hood, following the textCurve path to match the windshield's curvature -->
+  <text fill="#ffffff" 
+        font-family="sans-serif" 
+        font-weight="bold" 
+        font-size="22" 
+        letter-spacing="2">
+    <textPath href="#textCurve" startOffset="50%" text-anchor="middle">AMBULANCE</textPath>
+  </text>
+
+  <!-- White Headlights: Small, thin almond shapes (rx=7, ry=15) rotated to form an inverted V that follows the nose corners -->
+  <ellipse cx="160" cy="26" rx="7" ry="15" fill="#ffffff" transform="rotate(35 160 26)"/>
+  <ellipse cx="352" cy="26" rx="7" ry="15" fill="#ffffff" transform="rotate(-35 352 26)"/>
+
+  <!-- Siren Lightbar (Gyro) - Black capsule housing with white border containing two nested white lights -->
+  <g>
+    <!-- Black capsule housing with white border -->
+    <rect x="156" y="185" width="200" height="28" rx="8" fill="#111111" stroke="#ffffff" stroke-width="4"/>
+    <!-- Left white light -->
+    <rect x="166" y="191" width="60" height="16" rx="4" fill="#ffffff"/>
+    <!-- Right white light -->
+    <rect x="286" y="191" width="60" height="16" rx="4" fill="#ffffff"/>
+  </g>
+
+  <!-- Vertical Textured Reflection Lines (2 bars on each side: a top and bottom segment) -->
+  <!-- Left Side -->
+  <rect x="96" y="220" width="8" height="100" rx="4" fill="#ffffff" opacity="0.8"/>
+  <rect x="96" y="340" width="8" height="110" rx="4" fill="#ffffff" opacity="0.8"/>
+  <!-- Right Side -->
+  <rect x="408" y="220" width="8" height="100" rx="4" fill="#ffffff" opacity="0.8"/>
+  <rect x="408" y="340" width="8" height="110" rx="4" fill="#ffffff" opacity="0.8"/>
+
+  <!-- Horizontal Bumper Step Lines at the bottom (2 bars that do not cover the whole width) -->
+  <rect x="120" y="475" width="100" height="8" rx="4" fill="#ffffff" opacity="0.8"/>
+  <rect x="292" y="475" width="100" height="8" rx="4" fill="#ffffff" opacity="0.8"/>
+</svg>

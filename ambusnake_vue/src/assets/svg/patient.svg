@@ -1,0 +1,54 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Inverted U Bed Frame -->
+  <path d="M 76 440 L 76 340 L 436 340 L 436 440 L 420 440 L 420 356 L 92 356 L 92 440 Z" fill="#2c3e50"/>
+
+  <!-- Left Vertical Bar (Footboard) with a gap of 19.2px (1.2x bar thickness) -->
+  <rect x="40.8" y="240" width="16" height="200" fill="#2c3e50"/>
+
+  <!-- Right Vertical Bar (Headboard) - Symmetric positioning with left bar (gap of 19.2px) -->
+  <rect x="455.2" y="160" width="16" height="280" fill="#2c3e50"/>
+
+  <!-- Complex Bedding Path (With the top-left corner of the square block rounded EVEN MORE to radius 30px) -->
+  <path d="M 76 320.8 
+           L 436 320.8 
+           L 436 180 
+           L 316 279.2 
+           L 196 279.2 
+           L 196 240 
+           L 106 240 
+           Q 76 240 76 270 
+           L 76 320.8 
+           Z" 
+        fill="#2c3e50"/>
+
+  <!-- Thin Vertical Bar (IV Pole) shifted slightly to the left (x=204, gap of 8px) -->
+  <rect x="204" y="70" width="8" height="209.2" fill="#2c3e50"/>
+
+  <!-- IV Stand Hook (crochet): Inverted U shape starting from the pole (208, 70) and ending down inside the bag at (248, 65) -->
+  <path d="M 208 70 L 208 50 Q 208 35 228 35 Q 248 35 248 50 L 248 65" fill="none" stroke="#2c3e50" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- IV Bag (poche de perfusion) widened to 48px width by modifying the rectangle geometry directly (no stroke) -->
+  <rect x="224" y="55" width="48" height="50" rx="6" fill="#60a5fa"/>
+
+  <!-- IV Drip Tube (fil) starting from the bottom of the bag (248, 105), curving left (inverted) and ending under the patient's elbow (296, 260) -->
+  <path d="M 248 105 Q 215 180 296 260" fill="none" stroke="#60a5fa" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Complex Patient Body Path: Inner-curving rounded corners to preserve all the 8px gaps perfectly -->
+  <path d="M 220 263.2 
+           Q 220 271.2 228 271.2 
+           L 308 271.2 
+           Q 316 271.2 322 266.3 
+           L 428.2 178.4 
+           Q 436 172 426 172 
+           L 386 172 
+           Q 376 172 371 180 
+           L 304 233.2 
+           Q 296 240 286 240 
+           L 228 240 
+           Q 220 240 220 248 
+           Z" 
+        fill="#2563eb"/>
+
+  <!-- Patient Head: Blue circle centered on the horizontal shoulder line (x=406, y=132, r=32) -->
+  <circle cx="406" cy="132" r="32" fill="#2563eb"/>
+</svg>
