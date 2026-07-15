@@ -1,0 +1,60 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Shadow -->
+    <filter id="drop-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="4" dy="12" stdDeviation="8" flood-opacity="0.15" flood-color="#0b1b3d"/>
+    </filter>
+
+    <!-- Stretcher Metallic Frame -->
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#cbd5e1"/>
+      <stop offset="50%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+
+    <!-- Blanket Gradient (Warm and Healing Soft Orange/Red or Teal) -->
+    <linearGradient id="blanketGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+
+    <!-- Pillow Gradient -->
+    <linearGradient id="pillowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+
+    <!-- Skin Tone Gradient -->
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#fdbb2d"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Stretcher Bed Frame -->
+  <rect x="48" y="80" width="416" height="352" rx="36" fill="url(#metalGrad)" filter="url(#drop-shadow)" stroke="#475569" stroke-width="8"/>
+  
+  <!-- Mattress (inner cushion) -->
+  <rect x="64" y="96" width="384" height="320" rx="24" fill="#f8fafc"/>
+
+  <!-- Pillow (resting on the left side) -->
+  <rect x="80" y="128" width="100" height="256" rx="16" fill="url(#pillowGrad)" stroke="#cbd5e1" stroke-width="4"/>
+
+  <!-- Patient Head -->
+  <circle cx="140" cy="256" r="56" fill="url(#skinGrad)" stroke="#b45309" stroke-width="3"/>
+  
+  <!-- Sleeping/Peaceful Face Details (Eyes closed, smile) -->
+  <!-- Left Eye -->
+  <path d="M 125 240 Q 135 250 135 240" stroke="#78350f" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Right Eye -->
+  <path d="M 155 240 Q 165 250 165 240" stroke="#78350f" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Smile -->
+  <path d="M 135 275 Q 145 285 155 275" stroke="#78350f" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- Blanket (covering the rest of the body to the right) -->
+  <rect x="200" y="112" width="232" height="288" rx="16" fill="url(#blanketGrad)" stroke="#0f766e" stroke-width="4"/>
+
+  <!-- ECG Heartbeat / Healing icon on the blanket -->
+  <path d="M 260 256 L 290 256 L 300 220 L 315 292 L 330 240 L 340 270 L 350 256 L 380 256" 
+        stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9"/>
+</svg>

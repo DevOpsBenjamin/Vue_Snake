@@ -1,0 +1,41 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Shadow -->
+    <filter id="drop-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="4" dy="12" stdDeviation="10" flood-opacity="0.15" flood-color="#0b1b3d"/>
+    </filter>
+
+    <!-- Body Gradient -->
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#eef2f5"/>
+    </linearGradient>
+
+    <!-- Joint Connector Color -->
+    <linearGradient id="jointGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Joint/Connection to previous segment (protruding from the left) -->
+  <rect x="0" y="224" width="48" height="64" rx="8" fill="url(#jointGrad)" stroke="#0f172a" stroke-width="4"/>
+
+  <!-- Main Body Cabinet -->
+  <rect x="32" y="80" width="416" height="352" rx="48" fill="url(#bodyGrad)" filter="url(#drop-shadow)" stroke="#cbd5e1" stroke-width="6"/>
+
+  <!-- Roof Ventilation Panel -->
+  <rect x="144" y="160" width="224" height="192" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="4"/>
+  
+  <!-- Ventilation Ridges (Vertical panel lines) -->
+  <line x1="192" y1="192" x2="192" y2="320" stroke="#cbd5e1" stroke-width="8" stroke-linecap="round"/>
+  <line x1="256" y1="192" x2="256" y2="320" stroke="#cbd5e1" stroke-width="8" stroke-linecap="round"/>
+  <line x1="320" y1="192" x2="320" y2="320" stroke="#cbd5e1" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Orange/Red Hazard Stripes on the rear corners -->
+  <path d="M 400 85 L 442 127 L 442 167 L 400 125 Z" fill="#f97316"/>
+  <path d="M 400 387 L 442 345 L 442 385 L 400 427 Z" fill="#f97316"/>
+
+  <!-- Back Door line indicator -->
+  <line x1="442" y1="180" x2="442" y2="332" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+</svg>
