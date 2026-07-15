@@ -1,41 +1,46 @@
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
   <!-- Color Palette: Slate Grey (#2c3e50) and Royal Blue (#2563eb) -->
-  <!-- Everything is built with physical transparent gaps between paths (no outlines) -->
+  <!-- Flat, symmetrical, perfectly aligned layout with geometric gaps -->
 
-  <!-- IV Stand Pole (starts above the bed to prevent intersection) -->
-  <path d="M 220 80 L 220 200" stroke="#2c3e50" stroke-width="8" stroke-linecap="round"/>
-  <path d="M 220 80 Q 220 45 195 45" fill="none" stroke="#2c3e50" stroke-width="8" stroke-linecap="round"/>
+  <!-- IV Stand Pole (starts above the mattress level to avoid intersection) -->
+  <path d="M 210 80 L 210 200" stroke="#2c3e50" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 210 80 Q 210 45 185 45" fill="none" stroke="#2c3e50" stroke-width="8" stroke-linecap="round"/>
 
-  <!-- IV Bag (separated from the hook and pole) -->
-  <rect x="180" y="65" width="30" height="55" rx="6" fill="#2563eb"/>
+  <!-- IV Bag -->
+  <rect x="170" y="65" width="30" height="55" rx="6" fill="#2563eb"/>
 
-  <!-- IV Drip Tube (floating with small gaps at both ends) -->
-  <path d="M 195 135 C 195 185, 225 215, 255 215" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+  <!-- IV Drip Tube -->
+  <path d="M 185 135 C 185 185, 215 215, 250 215" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
 
-  <!-- Bed Legs (separated from the mattress base frame) -->
+  <!-- Bed Legs (Symmetric about x=256) -->
   <!-- Left Leg -->
-  <rect x="120" y="360" width="16" height="80" rx="4" fill="#2c3e50"/>
+  <rect x="128" y="324" width="16" height="96" rx="4" fill="#2c3e50"/>
   <!-- Right Leg -->
-  <rect x="376" y="360" width="16" height="80" rx="4" fill="#2c3e50"/>
+  <rect x="368" y="324" width="16" height="96" rx="4" fill="#2c3e50"/>
+  <!-- Horizontal Leg Connector -->
+  <rect x="128" y="380" width="256" height="16" rx="4" fill="#2c3e50"/>
 
-  <!-- Horizontal Bed Frame (separated from the mattress above) -->
-  <rect x="96" y="328" width="320" height="16" rx="4" fill="#2c3e50"/>
+  <!-- Bed Frame Platform -->
+  <rect x="96" y="312" width="320" height="12" rx="4" fill="#2c3e50"/>
 
-  <!-- Mattress (separated from the frame and the boards) -->
-  <rect x="96" y="272" width="320" height="40" rx="8" fill="#2c3e50"/>
+  <!-- Mattress Base -->
+  <rect x="96" y="276" width="320" height="24" rx="6" fill="#2c3e50"/>
 
-  <!-- Footboard (Left side, separated from the mattress) -->
-  <rect x="64" y="240" width="16" height="90" rx="8" fill="#2c3e50"/>
+  <!-- Left Footboard (Symmetric in alignment with headboard) -->
+  <rect x="64" y="240" width="16" height="84" rx="6" fill="#2c3e50"/>
 
-  <!-- Headboard (Right side, separated from the mattress) -->
-  <rect x="432" y="180" width="16" height="150" rx="8" fill="#2c3e50"/>
+  <!-- Right Headboard -->
+  <rect x="432" y="180" width="16" height="144" rx="6" fill="#2c3e50"/>
 
-  <!-- Cozy Blanket (resting on left side of mattress, separated from mattress and patient) -->
-  <rect x="96" y="216" width="150" height="40" rx="8" fill="#2c3e50"/>
+  <!-- Blanket (resting on left side of mattress) -->
+  <rect x="96" y="228" width="150" height="36" rx="6" fill="#2c3e50"/>
 
-  <!-- Patient Reclined Torso (separated from blanket, mattress and head) -->
-  <path d="M 270 250 L 345 195 C 352 190, 358 198, 353 205 L 290 260 Z" fill="#2563eb"/>
+  <!-- Triangular Backrest (Dossier du lit) -->
+  <polygon points="272,276 392,276 392,196" fill="#2c3e50"/>
 
-  <!-- Patient Head (separated from headboard and torso) -->
-  <circle cx="375" cy="155" r="28" fill="#2563eb"/>
+  <!-- Patient Torso (Inclined parallel to backrest, blue) -->
+  <path d="M 292 256 L 382 196" stroke="#2563eb" stroke-width="32" stroke-linecap="round"/>
+
+  <!-- Patient Head -->
+  <circle cx="395" cy="145" r="26" fill="#2563eb"/>
 </svg>
