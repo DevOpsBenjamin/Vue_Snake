@@ -1,48 +1,41 @@
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <!-- Color Palette: Flat Slate Grey (#2c3e50), Royal Blue (#2563eb), and White gaps (#ffffff) -->
-  
-  <!-- Background behind elements (to ensure white gaps stand out even on non-white maps) -->
-  
-  <!-- IV Stand Pole -->
-  <path d="M 230 90 L 230 300" stroke="#2c3e50" stroke-width="12" stroke-linecap="round"/>
-  <path d="M 230 90 Q 230 50 205 50" fill="none" stroke="#2c3e50" stroke-width="12" stroke-linecap="round"/>
+  <!-- Color Palette: Slate Grey (#2c3e50) and Royal Blue (#2563eb) -->
+  <!-- Everything is built with physical transparent gaps between paths (no outlines) -->
 
-  <!-- IV Bag with white border to isolate it -->
-  <rect x="193" y="74" width="24" height="48" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"/>
-  
-  <!-- IV Drip Tube with white border spacing -->
-  <path d="M 205 122 C 205 180, 240 230, 270 230" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
-  <path d="M 205 122 C 205 180, 240 230, 270 230" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+  <!-- IV Stand Pole (starts above the bed to prevent intersection) -->
+  <path d="M 220 80 L 220 200" stroke="#2c3e50" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 220 80 Q 220 45 195 45" fill="none" stroke="#2c3e50" stroke-width="8" stroke-linecap="round"/>
 
-  <!-- Bed Legs & Frame with white borders -->
+  <!-- IV Bag (separated from the hook and pole) -->
+  <rect x="180" y="65" width="30" height="55" rx="6" fill="#2563eb"/>
+
+  <!-- IV Drip Tube (floating with small gaps at both ends) -->
+  <path d="M 195 135 C 195 185, 225 215, 255 215" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Bed Legs (separated from the mattress base frame) -->
   <!-- Left Leg -->
-  <rect x="96" y="320" width="16" height="110" rx="4" fill="#2c3e50" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"/>
+  <rect x="120" y="360" width="16" height="80" rx="4" fill="#2c3e50"/>
   <!-- Right Leg -->
-  <rect x="400" y="320" width="16" height="110" rx="4" fill="#2c3e50" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"/>
-  
-  <!-- Horizontal Base Bar -->
-  <rect x="80" y="320" width="352" height="16" rx="4" fill="#2c3e50" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"/>
+  <rect x="376" y="360" width="16" height="80" rx="4" fill="#2c3e50"/>
 
-  <!-- Footboard (Left) -->
-  <rect x="68" y="250" width="16" height="80" rx="6" fill="#2c3e50" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"/>
+  <!-- Horizontal Bed Frame (separated from the mattress above) -->
+  <rect x="96" y="328" width="320" height="16" rx="4" fill="#2c3e50"/>
 
-  <!-- Headboard (Right) -->
-  <rect x="428" y="190" width="16" height="140" rx="6" fill="#2c3e50" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"/>
+  <!-- Mattress (separated from the frame and the boards) -->
+  <rect x="96" y="272" width="320" height="40" rx="8" fill="#2c3e50"/>
 
-  <!-- Mattress & Pillow Area -->
-  <rect x="84" y="280" width="344" height="40" rx="8" fill="#2c3e50" stroke="#ffffff" stroke-width="12" stroke-linejoin="round"/>
+  <!-- Footboard (Left side, separated from the mattress) -->
+  <rect x="64" y="240" width="16" height="90" rx="8" fill="#2c3e50"/>
 
-  <!-- Patient Reclining Body and Blanket -->
-  <!-- Blanket (drawn first so patient torso overlaps it with white gaps) -->
-  <path d="M 94 280 L 250 280 C 260 280, 260 250, 250 250 L 94 250 Z" fill="#2c3e50" stroke="#ffffff" stroke-width="12" stroke-linejoin="round"/>
-  
-  <!-- Reclined Torso/Arm with a thick white border to create the gap over the blanket -->
-  <path d="M 235 285 L 370 200 C 378 195, 388 205, 382 215 L 285 285 Z" fill="#2563eb" stroke="#ffffff" stroke-width="12" stroke-linejoin="round"/>
-  <!-- Re-draw fill to hide the stroke interior -->
-  <path d="M 235 285 L 370 200 C 378 195, 388 205, 382 215 L 285 285 Z" fill="#2563eb"/>
+  <!-- Headboard (Right side, separated from the mattress) -->
+  <rect x="432" y="180" width="16" height="150" rx="8" fill="#2c3e50"/>
 
-  <!-- Patient Head with a thick white border to separate it from torso/headboard -->
-  <circle cx="380" cy="165" r="32" fill="#2563eb" stroke="#ffffff" stroke-width="12"/>
-  <!-- Re-draw fill to hide stroke interior -->
-  <circle cx="380" cy="165" r="32" fill="#2563eb"/>
+  <!-- Cozy Blanket (resting on left side of mattress, separated from mattress and patient) -->
+  <rect x="96" y="216" width="150" height="40" rx="8" fill="#2c3e50"/>
+
+  <!-- Patient Reclined Torso (separated from blanket, mattress and head) -->
+  <path d="M 270 250 L 345 195 C 352 190, 358 198, 353 205 L 290 260 Z" fill="#2563eb"/>
+
+  <!-- Patient Head (separated from headboard and torso) -->
+  <circle cx="375" cy="155" r="28" fill="#2563eb"/>
 </svg>
