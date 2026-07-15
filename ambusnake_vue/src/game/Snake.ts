@@ -75,10 +75,10 @@ export class Snake {
         // Rotate head based on direction
         let angle = 0;
         switch (currentDir) {
-          case Dir.Up: angle = -Math.PI / 2; break;
-          case Dir.Down: angle = Math.PI / 2; break;
-          case Dir.Left: angle = Math.PI; break;
-          case Dir.Right: angle = 0; break;
+          case Dir.Up: angle = 0; break;
+          case Dir.Down: angle = Math.PI; break;
+          case Dir.Left: angle = -Math.PI / 2; break;
+          case Dir.Right: angle = Math.PI / 2; break;
         }
         ctx.rotate(angle);
         ctx.drawImage(images.head, -Config.BOX_SIZE / 2, -Config.BOX_SIZE / 2, Config.BOX_SIZE, Config.BOX_SIZE);
