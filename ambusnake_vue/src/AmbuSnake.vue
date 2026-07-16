@@ -14,6 +14,21 @@ const score = ref(0);
 const state = ref<GameState>(GameState.START);
 let engine: GameEngine | null = null;
 
+const scaleFactor = ref(1);
+
+const updateScale = () => {
+  // Base dimensions of the game area
+  const gameWidth = 1600;
+  // Account for header height + margin (approx 100px)
+  const gameHeight = 896 + 100;
+
+  const widthRatio = window.innerWidth / gameWidth;
+  const heightRatio = window.innerHeight / gameHeight;
+
+  // Use the smaller ratio to ensure it always fits in both dimensions with a little margin (0.95)
+  scaleFactor.value = Math.min(widthRatio, heightRatio) * 0.95;
+};
+
 // LocalStorage Persistent High Score & Leaderboard
 const highScore = ref(parseInt(localStorage.getItem('ambusnake_high_score') || '0'));
 const leaderboard = ref<LeaderboardEntry[]>(
@@ -21,6 +36,9 @@ const leaderboard = ref<LeaderboardEntry[]>(
 );
 
 onMounted(() => {
+  updateScale();
+  window.addEventListener('resize', updateScale);
+
   if (canvasRef.value) {
     engine = new GameEngine(canvasRef.value);
     engine.onScoreChange = (s) => score.value = s;
@@ -36,6 +54,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
+  window.removeEventListener('resize', updateScale);
   if (engine) {
     engine.stop();
   }
@@ -80,7 +99,7 @@ const startGame = () => {
 </script>
 
 <template>
-  <div class="snake-container">
+  <div class="snake-container" :style="{ transform: `scale(${scaleFactor})`, transformOrigin: 'center center' }">
     <!-- Game Header (Glass styled) -->
     <div class="header">
       <div class="logo-area">

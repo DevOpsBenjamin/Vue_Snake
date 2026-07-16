@@ -152,11 +152,11 @@ defineEmits<{
 /* Premium Glassmorphism Card container */
 .glass-card {
   position: relative;
-  width: 520px;
-  padding: 40px;
+  width: 600px;
+  padding: 50px 40px;
   background: rgba(15, 23, 42, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 24px;
+  border-radius: 28px;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -175,13 +175,13 @@ defineEmits<{
 }
 
 .card-header {
-  margin-bottom: 28px;
+  margin-bottom: 36px;
 }
 
 .glass-card .title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 900;
-  margin: 0 0 6px 0;
+  margin: 0 0 10px 0;
   letter-spacing: 4px;
   background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
   -webkit-background-clip: text;
@@ -195,10 +195,11 @@ defineEmits<{
 }
 
 .glass-card .subtitle {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   color: #94a3b8;
   margin: 0;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 /* Leaderboard design */
@@ -352,15 +353,16 @@ defineEmits<{
 /* Dynamic Buttons */
 .btn {
   width: 100%;
-  padding: 16px 32px;
-  font-size: 1.25rem;
+  padding: 18px 32px;
+  font-size: 1.15rem;
   font-weight: 800;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   border: none;
-  border-radius: 14px;
+  border-radius: 16px;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   color: white;
+  text-transform: uppercase;
 }
 
 .btn-primary {
