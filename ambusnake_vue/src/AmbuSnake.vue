@@ -19,8 +19,8 @@ const scaleFactor = ref(1);
 const updateScale = () => {
   // Base dimensions of the game area
   const gameWidth = 1600;
-  // Account for header height + margin (approx 100px)
-  const gameHeight = 896 + 100;
+  // Account for header height + margin (approx 60px)
+  const gameHeight = 896 + 60;
 
   const widthRatio = window.innerWidth / gameWidth;
   const heightRatio = window.innerHeight / gameHeight;
@@ -150,18 +150,23 @@ const startGame = () => {
   align-items: center;
   width: 100%;
   max-width: 1600px;
-  margin-bottom: 16px;
-  padding: 12px 24px;
+  margin-bottom: 8px;
+  padding: 6px 16px;
   background: rgba(15, 23, 42, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
+  border-radius: 12px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
+.logo-area {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
 .logo-area h1 {
   margin: 0;
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   font-weight: 900;
   letter-spacing: 2px;
   background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
@@ -170,23 +175,23 @@ const startGame = () => {
 }
 
 .tagline {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #94a3b8;
   letter-spacing: 1px;
 }
 
 .stats {
   display: flex;
-  gap: 16px;
+  gap: 12px;
 }
 
 .stat-box {
   display: flex;
-  flex-direction: column;
-  padding: 8px 20px;
-  border-radius: 12px;
-  min-width: 120px;
-  text-align: center;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -201,10 +206,10 @@ const startGame = () => {
 }
 
 .stat-box .label {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: bold;
   color: #94a3b8;
-  margin-bottom: 2px;
+  margin-bottom: 0;
   letter-spacing: 1px;
 }
 
@@ -217,7 +222,7 @@ const startGame = () => {
 }
 
 .stat-box .value {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   font-weight: 900;
 }
 
